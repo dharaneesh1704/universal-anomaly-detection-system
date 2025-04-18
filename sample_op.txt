@@ -1,0 +1,60 @@
+[1m7/7[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m1s[0m 6ms/step - loss: 1.0103  
+Epoch 2/10
+[1m7/7[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m0s[0m 3ms/step - loss: 0.9226 
+Epoch 3/10
+[1m7/7[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m0s[0m 5ms/step - loss: 0.8762 
+Epoch 4/10
+[1m7/7[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m0s[0m 4ms/step - loss: 0.7433 
+Epoch 5/10
+[1m7/7[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m0s[0m 5ms/step - loss: 0.5594 
+Epoch 6/10
+[1m7/7[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m0s[0m 4ms/step - loss: 0.3885 
+Epoch 7/10
+[1m7/7[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m0s[0m 4ms/step - loss: 0.2889 
+Epoch 8/10
+[1m7/7[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m0s[0m 5ms/step - loss: 0.1990 
+Epoch 9/10
+[1m7/7[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m0s[0m 3ms/step - loss: 0.1431 
+Epoch 10/10
+[1m7/7[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m0s[0m 5ms/step - loss: 0.0899 
+
+🔍 Predicting anomalies in test data...
+[1m1/1[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m0s[0m 69ms/step
+
+📊 Results:
+Isolation Forest detected 3 anomalies.
+One-Class SVM detected 5 anomalies.
+AutoEncoder detected 1 anomalies.
+
+🛑 Anomalies identified by IsolationForest:
+    duration_sec protocol  bytes_sent  bytes_received error_flag  fragmented  \
+4      25.471646      ftp        7722            9482        RST           0   
+6      48.944919      dns        9838            5201        RST           0   
+10      0.155041      dns        6752            5289        RST           1   
+
+    priority  active_connections  idle_time_sec  
+4          3                 123     297.647404  
+6          4                  75      62.553154  
+10         0                 484     114.186988  
+
+🛑 Anomalies identified by OneClassSVM:
+    duration_sec protocol  bytes_sent  bytes_received error_flag  fragmented  \
+4      25.471646      ftp        7722            9482        RST           0   
+5       5.222338      dns        7427            6864        ACK           0   
+6      48.944919      dns        9838            5201        RST           0   
+10      0.155041      dns        6752            5289        RST           1   
+14     47.624631      ftp         869            6804        ACK           0   
+
+    priority  active_connections  idle_time_sec  
+4          3                 123     297.647404  
+5          2                 246     255.427487  
+6          4                  75      62.553154  
+10         0                 484     114.186988  
+14         0                 340     237.009131  
+
+🛑 Anomalies identified by AutoEncoder:
+   duration_sec protocol  bytes_sent  bytes_received error_flag  fragmented  \
+8     31.589952     http        9260             172        RST           0   
+
+   priority  active_connections  idle_time_sec  
+8         3                 350      34.909919  
